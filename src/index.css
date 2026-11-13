@@ -1,0 +1,64 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  :root {
+    --bg-midnight: #07152e;
+    --bg-abyss: #050f22;
+    --surface-slate: #0b1c3b;
+    --accent-cobalt: #2563eb;
+    --accent-cyan: #22d3ee;
+    --accent-violet: #7c3aed;
+  }
+
+  html {
+    background-color: #f4f7fc;
+    color: #0f172a;
+    font-family: 'DM Sans', 'Noto Sans Khmer', system-ui, -apple-system, sans-serif;
+    scroll-behavior: smooth;
+  }
+
+  html.dark {
+    background-color: #07152e;
+    color: #f8fafc;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+
+  body {
+    overflow-x: hidden;
+    transition: background-color 250ms ease, color 250ms ease;
+  }
+}
+
+.font-display {
+  font-family: 'Outfit', 'Noto Sans Khmer', system-ui, -apple-system, sans-serif;
+}
+
+.font-mono-tabular {
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
+  font-variant-numeric: tabular-nums;
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+@media (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  body.magnetic-cursor-active,
+  body.magnetic-cursor-active a,
+  body.magnetic-cursor-active button,
+  body.magnetic-cursor-active [role='button'] {
+    cursor: none;
+  }
+
+  body.magnetic-cursor-active input,
+  body.magnetic-cursor-active textarea,
+  body.magnetic-cursor-active select {
+    cursor: text;
+  }
+}
